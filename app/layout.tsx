@@ -1,30 +1,15 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "gtm-os — Your GTM workspace. Your models. Your data. Your keys.",
+  title: "gtm-os — open-source operating system for go-to-market",
   description:
-    "Open-source, AI-native GTM workspace. Thirteen specialist modules plus an orchestrator, coordinating through a persistent target-centric workspace. Bring your own key.",
-  keywords: [
-    "GTM",
-    "product marketing",
-    "AI workspace",
-    "competitive intelligence",
-    "sales enablement",
-    "open source",
-    "BYOK",
-  ],
-  authors: [{ name: "gtm-os contributors" }],
+    "Thirteen skills, one orchestrator, context that chains automatically. Run against a target, get a populated workspace of artifacts that read like deliverables.",
   openGraph: {
     title: "gtm-os",
-    description: "Your GTM workspace. Your models. Your data. Your keys.",
+    description: "An open-source operating system for go-to-market",
     type: "website",
-    url: process.env.NEXT_PUBLIC_APP_URL,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "gtm-os",
-    description: "Your GTM workspace. Your models. Your data. Your keys.",
   },
 };
 
@@ -34,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="grain">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
