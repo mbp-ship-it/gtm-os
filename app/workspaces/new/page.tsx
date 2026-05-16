@@ -5,6 +5,6 @@ export default function NewWorkspacePage() {
     return (
           <Suspense fallback={<div style={{ background: "#0A0A0A", minHeight: "100vh" }} />}>
                   <CreateTarget />
-          </Suspense>Suspense>
+          </Suspense>
         );
 }
