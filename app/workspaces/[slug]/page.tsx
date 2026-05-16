@@ -9,6 +9,6 @@ export default function WorkspaceSlugPage({
     return (
           <Suspense fallback={<div style={{ background: "#0A0A0A", minHeight: "100vh" }} />}>
                   <GtmOsWorkspace workspaceId={params.slug} />
-          </Suspense>Suspense>
+          </Suspense>
         );
 }
