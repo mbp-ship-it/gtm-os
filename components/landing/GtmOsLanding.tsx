@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ArrowUpRight, Github, Terminal, Target, Layers, Zap, ArrowRight, Circle, Minus } from "lucide-react";
 
 export default function GtmOsLanding() {
-  const [hoveredWorkspace, setHoveredWorkspace] = useState(null);
+  const [hoveredWorkspace, setHoveredWorkspace] = useState<number | null>(null);
 
   const fontStyles = `
     @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500&display=swap');
@@ -175,7 +175,7 @@ export default function GtmOsLanding() {
           <div className="border-t" style={{ borderColor: "#1C1C1C" }}>
             {modules.map((m, i) => (
               <React.Fragment key={i}>
-                {m.extension && (i === 0 || !modules[i - 1].extension) && (
+                {(m as any).extension && (i === 0 || !modules[i - 1].extension) && (
                   <div className="grid grid-cols-12 gap-6 py-5 border-b" style={{ borderColor: "#1C1C1C" }}>
                     <div className="col-span-12 flex items-center gap-4">
                       <span className="font-mono text-[10px] tracking-[0.15em]" style={{ color: "#E8B44C" }}>OPERATOR EXTENSIONS</span>
@@ -185,7 +185,7 @@ export default function GtmOsLanding() {
                   </div>
                 )}
                 <div className="group grid grid-cols-12 gap-6 py-8 border-b" style={{ borderColor: "#1C1C1C" }}>
-                  <div className="col-span-1"><div className="font-mono text-xs" style={{ color: m.extension ? "#E8B44C" : "#4A4A4A" }}>{m.num}</div></div>
+                  <div className="col-span-1"><div className="font-mono text-xs" style={{ color: (m as any).extension ? "#E8B44C" : "#4A4A4A" }}>{m.num}</div></div>
                   <div className="col-span-3"><h4 className="font-serif text-xl" style={{ color: "#EDEDED" }}>{m.name}</h4></div>
                   <div className="col-span-6"><p className="font-sans text-sm leading-relaxed" style={{ color: "#A0A0A0" }}>{m.desc}</p></div>
                   <div className="col-span-2 text-right">
